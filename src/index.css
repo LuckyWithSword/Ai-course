@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-poster-orange: #F6A51B;
+  --color-poster-cream: #EFE5CD;
+  --color-poster-blue: #0759A8;
+  --color-poster-green: #078C4C;
+  --color-poster-red: #F13B2F;
+  --color-poster-black: #171717;
+  --color-poster-offwhite: #F7F1E3;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #F6A51B;
+    color: #171717;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Custom editorial effects */
+.border-poster {
+  border-color: #171717;
+}
+
+.cut-corner-br {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+}
+
+.cut-corner-tl-br {
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
